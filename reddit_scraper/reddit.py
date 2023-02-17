@@ -141,7 +141,8 @@ def scrape_subreddit_praw():
 
 if __name__ == "__main__":
     with open("secrets.json", "r") as f:
-        secrets = json.loads(f.read())
+        secrets = json.loads(f.read())["REDDIT_SECRETS"]
+
     reddit = praw.Reddit(
         client_id=secrets["client_id"],
         client_secret=secrets["client_secret"],
