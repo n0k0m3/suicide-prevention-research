@@ -1,5 +1,18 @@
 import subprocess
+import os
 
-# curl https://files.pushshift.io/reddit/submissions/RS_2008-11.zst --output - | zstd --long=31 -dc | rg -e '"subreddit":"SuicideWatch"'
 
-def  s
+class PushShiftScrape:
+    # A wrapper to scrape from pushshift archive
+    def __init__(self, subreddit: str) -> None:
+        self.subreddit = subreddit
+
+    def scrape_month(self, year: int, month: int) -> None:
+        # scrape from pushshift archive
+        subprocess.run(
+            ["./archive_scrape.sh", f"{year}-{month}", self.subreddit], check=True
+        )
+
+    def scrape_all(self) -> None:
+        # scrape from pushshift archive
+        subprocess.run(["./archive_scrape.sh", "all", self.subreddit], check=True)
