@@ -156,4 +156,4 @@ if __name__ == "__main__":
     reddit_suicide = RedditScrape("SuicideWatch", db, reddit, min_total=10000)
     reddit_suicide.scrape_pmaw()
     # Pushshift API limited to post after 1667504602
-    # Get Pushshift dump prior: https://files.pushshift.io/reddit/submissions/RS_2022-12.zst
+    # Get Pushshift dump prior: https://files.pushshift.io/reddit/submissions/
