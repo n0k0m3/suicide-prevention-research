@@ -5,15 +5,6 @@ import datetime as dt
 import sqlite3
 from time import sleep
 import pymongo
-from utils import get_db_conn_string
-
-with open("secrets.json", "r") as f:
-    secrets = json.loads(f.read())
-reddit = praw.Reddit(
-    client_id=secrets["client_id"],
-    client_secret=secrets["client_secret"],
-    user_agent=f"python: PMAW request enrichment",
-)
 
 
 class RedditScrape:
