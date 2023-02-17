@@ -149,6 +149,8 @@ if __name__ == "__main__":
         user_agent=f"python: PMAW request enrichment",
     )
 
+    from database import get_db_conn_string
+
     myclient = pymongo.MongoClient(get_db_conn_string())
     db = myclient["IRI"]
     reddit_suicide = RedditScrape("SuicideWatch", db, reddit, min_total=10000)
