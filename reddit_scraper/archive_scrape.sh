@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+DATADIR=$(realpath -e  -- "$(dirname -- "${BASH_SOURCE[0]}";)";)/../data
 
 # print help
 if [ $1 = "-h" ]; then
@@ -21,4 +23,5 @@ fi
 # construct URL for the month
 url="https://files.pushshift.io/reddit/submissions/RS_${year_month}.zst"
 
-curl $url --output - | zstd --long=31 -dc | rg -i "\"subreddit\":\"$subreddit\"" > "${subreddit}_${year_month}.json"
+zstd --long=31 -dc /home/n0k0m3/WDC/reddit/submissions/RS_${year_month}.zst | rg -i "\"subreddit\":\"$subreddit\"" > $DATADIR/${subreddit}_${year_month}.json
+echo "Saved to data/${subreddit}_${year_month}.json"

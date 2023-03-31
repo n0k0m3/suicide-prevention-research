@@ -10,5 +10,5 @@ cp .env.example .env
 Then we can start the database deployment with docker-compose:
 
 ```sh
-docker-compose -f ./database/docker-compose.yml up -d
+docker-compose -f docker-compose.yml up -d
 ```

@@ -152,7 +152,7 @@ if __name__ == "__main__":
     from database import get_db_conn_string
 
     myclient = pymongo.MongoClient(get_db_conn_string())
-    db = myclient["IRI"]
+    db = myclient["IRI_staging"]
     reddit_suicide = RedditScrape("SuicideWatch", db, reddit, min_total=10000)
     reddit_suicide.scrape_pmaw()
     # Pushshift API limited to post after 1667504602
