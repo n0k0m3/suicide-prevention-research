@@ -33,7 +33,7 @@ create_directory() {
 # Create output directory if it doesn't exist
 create_directory "$DATADIR"
 
-zstd --long=31 -dc "${DATA_SOURCE_DIR}/RS_${year_month}.zst" | rg -i "\"subreddit\":\"$subreddit\"" > "$DATADIR/temp.json"
+zstd --long=31 -dc "${DATA_SOURCE_DIR}/RS_${year_month}.zst" | rg -i "\"subreddit\":\"($subreddit)\"" > "$DATADIR/temp.json"
 # if $subreddit contains |, then for each regex case, pipe to a different file (makedirs -p if necessary)
 # else, rename the file to ${subreddit}/${year_month}.json (makedirs -p if necessary)
 if [[ $subreddit == *"|"* ]]; then
